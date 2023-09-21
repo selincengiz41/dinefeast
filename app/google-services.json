@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "168353586666",
+    "project_id": "dinefeast",
+    "storage_bucket": "dinefeast.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168353586666:android:dfb4ccaa41574041b36693",
+        "android_client_info": {
+          "package_name": "com.selincengiz.dinefeast"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsxGyPzoCbMJxEg-XUMhjwA_gCph0j7JQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

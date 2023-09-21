@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="background">#DC5023</color>
+    <color name="text">#552619</color>
+    <color name="orange">#FF5E00</color>
+    <color name="roundable">#FBEAE7</color>
+    <color name="toolbar_orange">#DD3D00</color>
+    <color name="search">#ECECEC</color>
+    <color name="pinky">#FFC5AB</color>
+    <color name="category">#FEF4E5</color>
+</resources>

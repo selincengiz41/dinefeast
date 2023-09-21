@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.DineFeast" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+
+        <item name="colorPrimaryDark">@color/background</item>
+        <item name="colorPrimary">@color/roundable</item>
+        <item name="colorOnPrimary">@color/background</item>
+        <item name="bottomNavigationStyle">
+            @style/Widget.MaterialComponents.BottomNavigationView.Colored
+        </item>
+    </style>
+    <style name="SearchViewTheme" parent="Widget.AppCompat.Light.SearchView">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textColorHint">@color/orange</item>
+    </style>
+    <style name="Theme.DineFeast" parent="Base.Theme.DineFeast" />
+</resources>
