@@ -21,5 +21,5 @@ object RoomDBModule {
 
     @Provides
     @Singleton
-    fun provideRoomDao(roomDB: FoodRoomDB)=roomDB.foodDao()
+    fun provideRoomDao(roomDB: FoodRoomDB) = roomDB.foodDao()
 }

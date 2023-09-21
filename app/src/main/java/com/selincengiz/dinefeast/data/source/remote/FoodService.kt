@@ -18,29 +18,29 @@ interface FoodService {
     suspend fun addCart(@Body addToCartRequest: AddToCartRequest): BaseResponse
 
     @POST("delete_from_cart.php")
-    suspend fun deleteCart(@Body deleteToCartRequest: DeleteToCartRequest):BaseResponse
+    suspend fun deleteCart(@Body deleteToCartRequest: DeleteToCartRequest): BaseResponse
 
     @GET("get_cart_products.php")
-    suspend fun getCartFoods(@Query("userId") userId :String) : GetFoodsResponse
+    suspend fun getCartFoods(@Query("userId") userId: String): GetFoodsResponse
 
     @POST("clear_cart.php")
-    suspend fun clearCart(@Body clearToCartRequest: ClearToCartRequest ) :BaseResponse
+    suspend fun clearCart(@Body clearToCartRequest: ClearToCartRequest): BaseResponse
 
     @GET("get_products.php")
-    suspend fun getFoods() : GetFoodsResponse
+    suspend fun getFoods(): GetFoodsResponse
 
     @GET("get_products_by_category.php")
-    suspend fun getFoodsByCategory(@Query("category") category :String):GetFoodsResponse
+    suspend fun getFoodsByCategory(@Query("category") category: String): GetFoodsResponse
 
     @GET("get_sale_products.php")
-    suspend fun getSaleFoods():GetFoodsResponse
+    suspend fun getSaleFoods(): GetFoodsResponse
 
     @GET("search_product.php")
-    suspend fun searchFood(@Query("query") query:String):GetFoodsResponse
+    suspend fun searchFood(@Query("query") query: String): GetFoodsResponse
 
     @GET("get_categories.php")
-    suspend fun getCategories():GetCategoriesResponse
+    suspend fun getCategories(): GetCategoriesResponse
 
     @GET("get_product_detail.php")
-    suspend fun getFoodDetail(@Query("id") id :Int):GetFoodDetailResponse
+    suspend fun getFoodDetail(@Query("id") id: Int): GetFoodDetailResponse
 }

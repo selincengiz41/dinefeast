@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -96,7 +97,6 @@ class PaymentFragment : Fragment() {
     }
 
 
-
     fun placeOrderClicked() =
         with(binding) {
 
@@ -118,4 +118,33 @@ class PaymentFragment : Fragment() {
         }
 
 
+    fun barCreditClicked() {
+        if (binding.barCreditCard.isVisible) {
+            binding.barCreditCard.visibility = View.GONE
+            binding.btnCreditCard.setImageResource(R.drawable.show)
+        } else {
+            binding.barCreditCard.visibility = View.VISIBLE
+            binding.btnCreditCard.setImageResource(R.drawable.hide)
+        }
+    }
+
+    fun barAddressClicked() {
+        if (binding.barAddress.isVisible) {
+            binding.barAddress.visibility = View.GONE
+            binding.btnAddress.setImageResource(R.drawable.show)
+        } else {
+            binding.barAddress.visibility = View.VISIBLE
+            binding.btnAddress.setImageResource(R.drawable.hide)
+        }
+    }
+
+    fun barInfoClicked() {
+        if (binding.barInfo.isVisible) {
+            binding.barInfo.visibility = View.GONE
+            binding.btnInfo.setImageResource(R.drawable.show)
+        } else {
+            binding.barInfo.visibility = View.VISIBLE
+            binding.btnInfo.setImageResource(R.drawable.hide)
+        }
+    }
 }

@@ -13,11 +13,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PaymentViewModel @Inject constructor(private val cartRepo: CartRepo): ViewModel() {
+class PaymentViewModel @Inject constructor(private val cartRepo: CartRepo) : ViewModel() {
 
 
-    fun clearCart(){
-        viewModelScope.launch { cartRepo.clearCart()
+    fun clearCart() {
+        viewModelScope.launch {
+            cartRepo.clearCart()
         }
     }
 }

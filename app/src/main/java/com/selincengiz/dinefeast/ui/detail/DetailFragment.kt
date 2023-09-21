@@ -24,7 +24,6 @@ class DetailFragment : Fragment() {
     private val args by navArgs<DetailFragmentArgs>()
     private val viewModel by viewModels<DetailViewModel>()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,38 +47,40 @@ class DetailFragment : Fragment() {
 
             when (state) {
                 HomeState.Loading -> {
-                    binding.mainLayout.visibility=View.GONE
+                    binding.mainLayout.visibility = View.GONE
                     binding.progressBar2.visibility = View.VISIBLE
                 }
 
                 is HomeState.Detail -> {
-                    binding.mainLayout.visibility=View.VISIBLE
+                    binding.mainLayout.visibility = View.VISIBLE
                     binding.progressBar2.visibility = View.GONE
                     binding.ivFood.loadUrl(state.food.imageOne)
-                    binding.tvTitleFood.text=state.food.title
-                    binding.tvDesc.text=state.food.description
-                    binding.ratingBar.rating=state.food.rate!!.toFloat()
+                    binding.tvTitleFood.text = state.food.title
+                    binding.tvDesc.text = state.food.description
+                    binding.ratingBar.rating = state.food.rate!!.toFloat()
 
-                    when(state.food.saleState){
-                        true ->{
-                            binding.tvPrice.text=state.food.salePrice.toString()
-                            binding.tvSale.text=state.food.price.toString()
-                            binding.tvSale.paintFlags = binding.tvSale.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                            binding.tvSale.visibility=View.VISIBLE
+                    when (state.food.saleState) {
+                        true -> {
+                            binding.tvPrice.text = state.food.salePrice.toString()
+                            binding.tvSale.text = state.food.price.toString()
+                            binding.tvSale.paintFlags =
+                                binding.tvSale.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
+                            binding.tvSale.visibility = View.VISIBLE
                         }
 
                         false -> {
-                            binding.tvPrice.text=state.food.price.toString()
-                            binding.tvSale.visibility=View.GONE
+                            binding.tvPrice.text = state.food.price.toString()
+                            binding.tvSale.visibility = View.GONE
                         }
-                        else ->{
+
+                        else -> {
 
                         }
                     }
                 }
 
                 is HomeState.Error -> {
-                    binding.mainLayout.visibility=View.GONE
+                    binding.mainLayout.visibility = View.GONE
                     binding.progressBar2.visibility = View.GONE
                     Toast.makeText(requireContext(), state.throwable.message, Toast.LENGTH_SHORT)
                         .show()
@@ -104,8 +105,8 @@ class DetailFragment : Fragment() {
     }
 
     fun addClicked() {
-            viewModel.addCart(args.id)
-            findNavController().navigate(DetailFragmentDirections.detailToCart())
+        viewModel.addCart(args.id)
+        findNavController().navigate(DetailFragmentDirections.detailToCart())
     }
 
 

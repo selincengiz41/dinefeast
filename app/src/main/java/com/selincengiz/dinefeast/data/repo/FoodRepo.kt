@@ -58,7 +58,7 @@ class FoodRepo(
 
     }
 
-    suspend fun getSaleFoods():Resource<List<Food>>  {
+    suspend fun getSaleFoods(): Resource<List<Food>> {
 
         return try {
             Resource.Success(foodService.getSaleFoods().foods.orEmpty())
@@ -68,7 +68,7 @@ class FoodRepo(
         }
     }
 
-    suspend fun searchFoods(query:String):Resource<List<Food>>  {
+    suspend fun searchFoods(query: String): Resource<List<Food>> {
 
         return try {
             Resource.Success(foodService.searchFood(query).foods.orEmpty())

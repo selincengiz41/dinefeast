@@ -30,32 +30,33 @@ class CategoryAdapter(private val itemListener: ItemCategoryListener) :
 
         fun bind(category: String) = with(binding) {
 
-            when(category){
+            when (category) {
 
-                "Pizza" ->{
+                "Pizza" -> {
                     ivCategory.setImageResource(R.drawable.cat_1)
 
                 }
 
-                "Burger" ->{
+                "Burger" -> {
                     ivCategory.setImageResource(R.drawable.cat_2)
                 }
-                "Sides" ->{
+
+                "Sides" -> {
                     ivCategory.setImageResource(R.drawable.fries)
                 }
 
-                "Drinks" ->{
+                "Drinks" -> {
                     ivCategory.setImageResource(R.drawable.cat_4)
 
                 }
 
-                "Pasta" ->{
+                "Pasta" -> {
                     ivCategory.setImageResource(R.drawable.pasta)
 
                 }
             }
 
-            tvCategory.text=category
+            tvCategory.text = category
 
             root.setOnClickListener {
                 listener.onClicked(category)

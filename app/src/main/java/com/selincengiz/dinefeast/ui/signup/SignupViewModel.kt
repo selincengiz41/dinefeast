@@ -9,7 +9,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class SignupViewModel @Inject constructor(private val auth : FirebaseAuth): ViewModel() {
+class SignupViewModel @Inject constructor(private val auth: FirebaseAuth) : ViewModel() {
 
     private var _message = MutableLiveData<String?>()
     val message: MutableLiveData<String?>

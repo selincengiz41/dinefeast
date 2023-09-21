@@ -34,8 +34,7 @@ object NetworkModule {
     @Singleton
     fun provideOkHttpClient(chucker: ChuckerInterceptor) = OkHttpClient.Builder().apply {
         addInterceptor(chucker)
-        addInterceptor {
-                chain ->
+        addInterceptor { chain ->
             val original = chain.request()
             val requestBuilder = original.newBuilder()
                 .header("store", "dinefeast") // İstediğiniz header'ı burada ekleyin
@@ -57,8 +56,8 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideFoodService(retrofit: Retrofit)=retrofit.create<FoodService>()
+    fun provideFoodService(retrofit: Retrofit) = retrofit.create<FoodService>()
 
-    }
+}
 
 

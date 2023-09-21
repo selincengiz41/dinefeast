@@ -99,8 +99,7 @@
             android:layout_margin="@dimen/_10sdp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/baseline_favorite_border_24"
-         />
+            app:srcCompat="@drawable/baseline_favorite_border_24" />
 
     </com.tistory.zladnrms.roundablelayout.RoundableLayout>
 </layout>

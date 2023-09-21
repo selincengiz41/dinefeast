@@ -1,5 +1,5 @@
 package com.selincengiz.dinefeast.data.model
 
 data class DeleteToCartRequest(
-    val id:Int
+    val id: Int
 )

@@ -17,27 +17,31 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(val foodRepo: FoodRepo ,val cartRepo: CartRepo, val favoriteRepo: FavoriteRepo): ViewModel() {
+class HomeViewModel @Inject constructor(
+    val foodRepo: FoodRepo,
+    val cartRepo: CartRepo,
+    val favoriteRepo: FavoriteRepo
+) : ViewModel() {
 
     private var _homeState = MutableLiveData<HomeState>()
-    val homeState : LiveData<HomeState>
+    val homeState: LiveData<HomeState>
         get() = _homeState
 
-    private var _roomList=MutableLiveData<List<FoodEntity>>()
-    val roomList:LiveData<List<FoodEntity>>
+    private var _roomList = MutableLiveData<List<FoodEntity>>()
+    val roomList: LiveData<List<FoodEntity>>
         get() = _roomList
 
-    fun getFoods(){
+    fun getFoods() {
         viewModelScope.launch {
-            _homeState.value= HomeState.Loading
-            val result=  foodRepo.getFoods()
-            when(result){
+            _homeState.value = HomeState.Loading
+            val result = foodRepo.getFoods()
+            when (result) {
                 is Resource.Success -> {
                     val entityList = favoriteRepo.getFoods()
-                    var finalList= ArrayList<FoodEntity>()
+                    var finalList = ArrayList<FoodEntity>()
                     if (entityList.size > 0) {
                         result.data.forEach { food ->
-                            var temp: FoodEntity? =null
+                            var temp: FoodEntity? = null
                             entityList.forEach { foodEntity ->
 
                                 if (food.id == foodEntity.id) {
@@ -52,33 +56,32 @@ class HomeViewModel @Inject constructor(val foodRepo: FoodRepo ,val cartRepo: Ca
                             }
 
                         }
-                        _roomList.value= finalList
+                        _roomList.value = finalList
+                    } else {
+                        _roomList.value = result.data.map { it.mapToFoodEntity(false) }
                     }
-                    else {
-                        _roomList.value=   result.data.map { it.mapToFoodEntity(false) }
-                    }
-                    _homeState.value= _roomList.value?.let { HomeState.Data(it) }
+                    _homeState.value = _roomList.value?.let { HomeState.Data(it) }
                 }
 
                 is Resource.Error -> {
-                    _homeState.value=HomeState.Error(result.throwable)
+                    _homeState.value = HomeState.Error(result.throwable)
                 }
             }
         }
     }
 
 
-    fun getSaleFoods(){
+    fun getSaleFoods() {
         viewModelScope.launch {
-            _homeState.value= HomeState.Loading
-            val result=  foodRepo.getSaleFoods()
-            when(result){
+            _homeState.value = HomeState.Loading
+            val result = foodRepo.getSaleFoods()
+            when (result) {
                 is Resource.Success -> {
                     val entityList = favoriteRepo.getFoods()
-                    var finalList= ArrayList<FoodEntity>()
+                    var finalList = ArrayList<FoodEntity>()
                     if (entityList.size > 0) {
                         result.data.forEach { food ->
-                            var temp: FoodEntity? =null
+                            var temp: FoodEntity? = null
                             entityList.forEach { foodEntity ->
 
                                 if (food.id == foodEntity.id) {
@@ -93,39 +96,36 @@ class HomeViewModel @Inject constructor(val foodRepo: FoodRepo ,val cartRepo: Ca
                             }
 
                         }
-                        _roomList.value= finalList
+                        _roomList.value = finalList
+                    } else {
+                        _roomList.value = result.data.map { it.mapToFoodEntity(false) }
                     }
-                    else {
-                        _roomList.value=   result.data.map { it.mapToFoodEntity(false) }
-                    }
-                    _homeState.value= _roomList.value?.let { HomeState.DataByFilter(it) }
+                    _homeState.value = _roomList.value?.let { HomeState.DataByFilter(it) }
 
                 }
 
                 is Resource.Error -> {
-                    _homeState.value=HomeState.Error(result.throwable)
+                    _homeState.value = HomeState.Error(result.throwable)
                 }
             }
         }
     }
 
-    fun addCart(foodId:Int){
+    fun addCart(foodId: Int) {
         viewModelScope.launch {
-            _homeState.value= HomeState.Loading
-            val result=  cartRepo.addCart(foodId)
-            when(result){
+            _homeState.value = HomeState.Loading
+            val result = cartRepo.addCart(foodId)
+            when (result) {
                 is Resource.Success -> {
-                    _homeState.value= HomeState.Cart(result.data)
+                    _homeState.value = HomeState.Cart(result.data)
                 }
 
                 is Resource.Error -> {
-                    _homeState.value=HomeState.Error(result.throwable)
+                    _homeState.value = HomeState.Error(result.throwable)
                 }
             }
         }
     }
-
-
 
 
     fun addFavorites(food: FoodEntity) {

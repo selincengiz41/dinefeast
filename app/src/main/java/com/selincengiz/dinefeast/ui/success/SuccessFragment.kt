@@ -15,7 +15,6 @@ import dagger.hilt.android.AndroidEntryPoint
 class SuccessFragment : Fragment() {
     private lateinit var binding: FragmentSuccessBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

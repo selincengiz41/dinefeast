@@ -16,7 +16,7 @@ import com.selincengiz.dinefeast.data.model.FoodEntity
 import com.selincengiz.dinefeast.databinding.ItemFoodBinding
 
 
-class FoodAdapter(private val itemListener: ItemListener)  :
+class FoodAdapter(private val itemListener: ItemListener) :
     ListAdapter<FoodEntity, FoodAdapter.FoodViewHolder>(FoodDiffCallBack()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FoodViewHolder =
@@ -40,30 +40,30 @@ class FoodAdapter(private val itemListener: ItemListener)  :
         fun bind(food: FoodEntity) = with(binding) {
 
             ivFood.loadUrl(food.imageOne)
-            tvTitleFood.text=food.title
-             food.isFavorite?.let {
-                 if (it){
-                     ivFavorite.setBackgroundResource(R.drawable.baseline_favorite_24)
-                 }
-                 else{
-                     ivFavorite.setBackgroundResource(R.drawable.baseline_favorite_border_24)
-                 }
-             }
+            tvTitleFood.text = food.title
+            food.isFavorite?.let {
+                if (it) {
+                    ivFavorite.setBackgroundResource(R.drawable.baseline_favorite_24)
+                } else {
+                    ivFavorite.setBackgroundResource(R.drawable.baseline_favorite_border_24)
+                }
+            }
 
 
-            when(food.saleState){
-                true ->{
-                    tvPrice.text=food.salePrice.toString()
-                    tvSale.text=food.price.toString()
+            when (food.saleState) {
+                true -> {
+                    tvPrice.text = food.salePrice.toString()
+                    tvSale.text = food.price.toString()
                     tvSale.paintFlags = tvSale.paintFlags or Paint.STRIKE_THRU_TEXT_FLAG
-                    tvSale.visibility=View.VISIBLE
+                    tvSale.visibility = View.VISIBLE
                 }
 
-                false ->{
-                    tvPrice.text=food.price.toString()
-                    tvSale.visibility=View.GONE
+                false -> {
+                    tvPrice.text = food.price.toString()
+                    tvSale.visibility = View.GONE
                 }
-                else ->{
+
+                else -> {
 
                 }
             }
@@ -79,18 +79,15 @@ class FoodAdapter(private val itemListener: ItemListener)  :
 
             ivFavorite.setOnClickListener {
                 food.isFavorite?.let {
-                    if(it){
+                    if (it) {
                         listener.unFavoriteClicked(food)
 
-                    }
-                    else{
+                    } else {
                         listener.favoriteClicked(food.mapToFavorites(true))
 
                     }
-                   notifyChange()
+                    notifyChange()
                 }
-
-
 
 
             }

@@ -38,18 +38,19 @@ class CartAdapter(private val itemListener: ItemCartListener) :
         fun bind(food: FoodEntity) = with(binding) {
 
             ivFood.loadUrl(food.imageOne)
-            tvTitleFood.text=food.title
+            tvTitleFood.text = food.title
 
-            when(food.saleState){
-                true ->{
-                    tvPrice.text=food.salePrice.toString()
+            when (food.saleState) {
+                true -> {
+                    tvPrice.text = food.salePrice.toString()
                 }
 
-                false ->{
-                    tvPrice.text=food.price.toString()
+                false -> {
+                    tvPrice.text = food.price.toString()
 
                 }
-                else ->{
+
+                else -> {
 
                 }
             }

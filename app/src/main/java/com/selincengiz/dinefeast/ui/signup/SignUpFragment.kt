@@ -52,8 +52,17 @@ class SignUpFragment : Fragment() {
         if (email.isNullOrEmpty().not() && password.isNullOrEmpty().not() && name.isNullOrEmpty()
                 .not()
         ) {
+            if (password.length >= 6) {
+                viewModel.firebaseSignUp(email, password, name)
 
-                viewModel.firebaseSignUp(email, password , name)
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Password must be at least 6 characters.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
 
         } else {
             Toast.makeText(requireContext(), "Please fill in the blanks.", Toast.LENGTH_SHORT)
@@ -66,7 +75,6 @@ class SignUpFragment : Fragment() {
     fun toSignInClicked() {
         findNavController().navigate(SignUpFragmentDirections.signupTosignIn())
     }
-
 
 
 }

@@ -15,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SignInFragment : Fragment() {
-private lateinit var binding:FragmentSignInBinding
+    private lateinit var binding: FragmentSignInBinding
     private val viewModel by viewModels<SignInViewModel>()
 
     override fun onCreateView(
@@ -23,7 +23,7 @@ private lateinit var binding:FragmentSignInBinding
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding= DataBindingUtil.inflate(inflater,R.layout.fragment_sign_in, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_in, container, false)
         binding.signInFunctions = this
         return binding.root
     }
@@ -32,6 +32,7 @@ private lateinit var binding:FragmentSignInBinding
         super.onViewCreated(view, savedInstanceState)
         observeMessage()
     }
+
     fun observeMessage() {
         viewModel.message.observe(viewLifecycleOwner) {
             if (it.equals("Success")) {
@@ -44,9 +45,20 @@ private lateinit var binding:FragmentSignInBinding
         }
 
     }
+
     fun signInClicked(email: String, password: String) {
         if (email.isNullOrEmpty().not() && password.isNullOrEmpty().not()) {
-            viewModel.firebaseSignIn(email, password)
+            if (password.length >= 6) {
+                viewModel.firebaseSignIn(email, password)
+
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Password must be at least 6 characters.",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
         } else {
             Toast.makeText(requireContext(), "Please fill in the blanks.", Toast.LENGTH_SHORT)
                 .show()

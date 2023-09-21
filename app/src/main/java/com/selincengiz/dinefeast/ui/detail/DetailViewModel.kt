@@ -13,41 +13,44 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailViewModel @Inject constructor(private val foodRepo: FoodRepo, private val cartRepo: CartRepo)  : ViewModel() {
+class DetailViewModel @Inject constructor(
+    private val foodRepo: FoodRepo,
+    private val cartRepo: CartRepo
+) : ViewModel() {
 
 
-    private var _homeState =MutableLiveData<HomeState>()
-    val homeState :LiveData<HomeState>
+    private var _homeState = MutableLiveData<HomeState>()
+    val homeState: LiveData<HomeState>
         get() = _homeState
 
 
-    fun getFoodDetail(foodId:Int){
+    fun getFoodDetail(foodId: Int) {
         viewModelScope.launch {
-            _homeState.value= HomeState.Loading
-            val result=  foodRepo.getFoodDetail(foodId)
-            when(result){
+            _homeState.value = HomeState.Loading
+            val result = foodRepo.getFoodDetail(foodId)
+            when (result) {
                 is Resource.Success -> {
-                    _homeState.value= HomeState.Detail(result.data)
+                    _homeState.value = HomeState.Detail(result.data)
                 }
 
                 is Resource.Error -> {
-                    _homeState.value=HomeState.Error(result.throwable)
+                    _homeState.value = HomeState.Error(result.throwable)
                 }
             }
         }
     }
 
-    fun addCart(foodId:Int){
+    fun addCart(foodId: Int) {
         viewModelScope.launch {
-            _homeState.value= HomeState.Loading
-            val result=  cartRepo.addCart(foodId)
-            when(result){
+            _homeState.value = HomeState.Loading
+            val result = cartRepo.addCart(foodId)
+            when (result) {
                 is Resource.Success -> {
-                    _homeState.value= HomeState.Cart(result.data)
+                    _homeState.value = HomeState.Cart(result.data)
                 }
 
                 is Resource.Error -> {
-                    _homeState.value=HomeState.Error(result.throwable)
+                    _homeState.value = HomeState.Error(result.throwable)
                 }
             }
         }

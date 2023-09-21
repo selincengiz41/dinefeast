@@ -17,11 +17,11 @@ class SignInViewModel @Inject constructor(private val auth: FirebaseAuth) : View
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener() { task ->
                 task.addOnSuccessListener {
-                    _message.value="Success"
+                    _message.value = "Success"
                 }
 
                 task.addOnFailureListener {
-                    _message.value=it.message
+                    _message.value = it.message
                 }
 
             }

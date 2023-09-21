@@ -29,8 +29,8 @@ class SearchViewModel @Inject constructor(
     val homeState: LiveData<HomeState>
         get() = _homeState
 
-    private var _roomList=MutableLiveData<List<FoodEntity>>()
-    val roomList:LiveData<List<FoodEntity>>
+    private var _roomList = MutableLiveData<List<FoodEntity>>()
+    val roomList: LiveData<List<FoodEntity>>
         get() = _roomList
 
     fun getCategories() {
@@ -57,10 +57,10 @@ class SearchViewModel @Inject constructor(
             when (result) {
                 is Resource.Success -> {
                     val entityList = favoriteRepo.getFoods()
-                    var finalList= ArrayList<FoodEntity>()
+                    var finalList = ArrayList<FoodEntity>()
                     if (entityList.size > 0) {
                         result.data.forEach { food ->
-                            var temp: FoodEntity? =null
+                            var temp: FoodEntity? = null
                             entityList.forEach { foodEntity ->
 
                                 if (food.id == foodEntity.id) {
@@ -75,10 +75,9 @@ class SearchViewModel @Inject constructor(
                             }
 
                         }
-                        _roomList.value= finalList
-                    }
-                    else {
-                        _roomList.value=   result.data.map { it.mapToFoodEntity(false) }
+                        _roomList.value = finalList
+                    } else {
+                        _roomList.value = result.data.map { it.mapToFoodEntity(false) }
                     }
                     _homeState.value = _roomList.value?.let { HomeState.DataByFilter(it) }
                 }
@@ -97,10 +96,10 @@ class SearchViewModel @Inject constructor(
             when (result) {
                 is Resource.Success -> {
                     val entityList = favoriteRepo.getFoods()
-                    var finalList= ArrayList<FoodEntity>()
+                    var finalList = ArrayList<FoodEntity>()
                     if (entityList.size > 0) {
                         result.data.forEach { food ->
-                              var temp: FoodEntity? =null
+                            var temp: FoodEntity? = null
                             entityList.forEach { foodEntity ->
 
                                 if (food.id == foodEntity.id) {
@@ -115,12 +114,12 @@ class SearchViewModel @Inject constructor(
                             }
 
                         }
-                        _roomList.value= finalList
+                        _roomList.value = finalList
+                    } else {
+                        _roomList.value = result.data.map { it.mapToFoodEntity(false) }
                     }
-                    else {
-                        _roomList.value=   result.data.map { it.mapToFoodEntity(false) }
-                    }
-                    _homeState.value = _roomList.value?.let { HomeState.Data(it) }
+                    _homeState.value =
+                        _roomList.value?.let { HomeState.Data(it.sortedByDescending { it.rate }) }
                 }
 
                 is Resource.Error -> {
@@ -137,10 +136,10 @@ class SearchViewModel @Inject constructor(
             when (result) {
                 is Resource.Success -> {
                     val entityList = favoriteRepo.getFoods()
-                    var finalList= ArrayList<FoodEntity>()
+                    var finalList = ArrayList<FoodEntity>()
                     if (entityList.size > 0) {
                         result.data.forEach { food ->
-                            var temp: FoodEntity? =null
+                            var temp: FoodEntity? = null
                             entityList.forEach { foodEntity ->
 
                                 if (food.id == foodEntity.id) {
@@ -155,10 +154,9 @@ class SearchViewModel @Inject constructor(
                             }
 
                         }
-                        _roomList.value= finalList
-                    }
-                    else {
-                        _roomList.value=   result.data.map { it.mapToFoodEntity(false) }
+                        _roomList.value = finalList
+                    } else {
+                        _roomList.value = result.data.map { it.mapToFoodEntity(false) }
                     }
                     _homeState.value = _roomList.value?.let { HomeState.DataByFilter(it) }
 

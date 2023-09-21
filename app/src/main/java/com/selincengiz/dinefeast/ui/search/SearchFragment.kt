@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class SearchFragment : Fragment(), ItemCategoryListener, ItemListener,
-    SearchView.OnQueryTextListener{
+    SearchView.OnQueryTextListener {
     private lateinit var binding: FragmentSearchBinding
     private val viewModel by viewModels<SearchViewModel>()
     private val categoryAdapter by lazy { CategoryAdapter(this) }
@@ -37,8 +37,8 @@ class SearchFragment : Fragment(), ItemCategoryListener, ItemListener,
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
         binding.searchFunctions = this
         binding.categoriesRecycler.adapter = categoryAdapter
-        binding.popularRecycler.adapter=foodAdapter
-        binding.foodsByFilterRecycler.adapter=foodByFilterAdapter
+        binding.popularRecycler.adapter = foodAdapter
+        binding.foodsByFilterRecycler.adapter = foodByFilterAdapter
         return binding.root
     }
 
@@ -51,8 +51,6 @@ class SearchFragment : Fragment(), ItemCategoryListener, ItemListener,
         binding.searchView.setOnQueryTextListener(this)
 
 
-
-
     }
 
     fun observe() {
@@ -60,53 +58,55 @@ class SearchFragment : Fragment(), ItemCategoryListener, ItemListener,
 
             when (state) {
                 HomeState.Loading -> {
-                    binding.btnBack.visibility=View.GONE
-                    binding.searchView.visibility=View.INVISIBLE
-                    binding.progressBar.visibility=View.VISIBLE
-                    binding.mainLayout.visibility=View.INVISIBLE
-                    binding.foodByCategoryLayout.visibility=View.INVISIBLE
+                    binding.btnBack.visibility = View.GONE
+                    binding.searchView.visibility = View.INVISIBLE
+                    binding.progressBar.visibility = View.VISIBLE
+                    binding.mainLayout.visibility = View.INVISIBLE
+                    binding.foodByCategoryLayout.visibility = View.INVISIBLE
 
                 }
 
                 is HomeState.Data -> {
-                    binding.btnBack.visibility=View.GONE
-                    binding.searchView.visibility=View.VISIBLE
-                    binding.progressBar.visibility=View.GONE
-                    binding.mainLayout.visibility=View.VISIBLE
-                    binding.foodByCategoryLayout.visibility=View.GONE
+                    binding.btnBack.visibility = View.GONE
+                    binding.searchView.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.GONE
+                    binding.mainLayout.visibility = View.VISIBLE
+                    binding.foodByCategoryLayout.visibility = View.GONE
                     foodAdapter.submitList(state.foods)
                 }
 
                 is HomeState.Error -> {
-                    binding.btnBack.visibility=View.GONE
-                    binding.searchView.visibility=View.GONE
-                    binding.progressBar.visibility=View.GONE
-                    binding.mainLayout.visibility=View.GONE
-                    binding.foodByCategoryLayout.visibility=View.GONE
-                    Toast.makeText(requireContext(), state.throwable.message, Toast.LENGTH_SHORT).show()
+                    binding.btnBack.visibility = View.GONE
+                    binding.searchView.visibility = View.GONE
+                    binding.progressBar.visibility = View.GONE
+                    binding.mainLayout.visibility = View.GONE
+                    binding.foodByCategoryLayout.visibility = View.GONE
+                    Toast.makeText(requireContext(), state.throwable.message, Toast.LENGTH_SHORT)
+                        .show()
 
                 }
 
                 is HomeState.Category -> {
-                    binding.btnBack.visibility=View.GONE
-                    binding.searchView.visibility=View.VISIBLE
-                    binding.progressBar.visibility=View.GONE
-                    binding.mainLayout.visibility=View.VISIBLE
-                    binding.foodByCategoryLayout.visibility=View.GONE
+                    binding.btnBack.visibility = View.GONE
+                    binding.searchView.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.GONE
+                    binding.mainLayout.visibility = View.VISIBLE
+                    binding.foodByCategoryLayout.visibility = View.GONE
                     categoryAdapter.submitList(state.categories)
 
                 }
 
                 is HomeState.DataByFilter -> {
-                    binding.btnBack.visibility=View.VISIBLE
-                    binding.searchView.visibility=View.VISIBLE
-                    binding.progressBar.visibility=View.GONE
-                    binding.mainLayout.visibility=View.GONE
-                    binding.foodByCategoryLayout.visibility=View.VISIBLE
+                    binding.btnBack.visibility = View.VISIBLE
+                    binding.searchView.visibility = View.VISIBLE
+                    binding.progressBar.visibility = View.GONE
+                    binding.mainLayout.visibility = View.GONE
+                    binding.foodByCategoryLayout.visibility = View.VISIBLE
                     foodByFilterAdapter.submitList(state.foods)
 
                 }
-                else ->{
+
+                else -> {
 
                 }
 
@@ -121,7 +121,7 @@ class SearchFragment : Fragment(), ItemCategoryListener, ItemListener,
 
     }
 
-    fun backClicked(){
+    fun backClicked() {
         viewModel.getCategories()
         viewModel.getFoods()
     }
@@ -152,7 +152,6 @@ class SearchFragment : Fragment(), ItemCategoryListener, ItemListener,
         }
 
 
-
     }
 
     override fun favoriteClicked(food: FoodEntity) {
@@ -167,7 +166,7 @@ class SearchFragment : Fragment(), ItemCategoryListener, ItemListener,
 
     override fun onQueryTextSubmit(text: String?): Boolean {
         text?.let {
-            if(it.length>3){
+            if (it.length > 3) {
                 viewModel.searchFoods(it)
             }
         }
@@ -177,15 +176,13 @@ class SearchFragment : Fragment(), ItemCategoryListener, ItemListener,
     override fun onQueryTextChange(text: String?): Boolean {
 
         text?.let {
-            if(it.length>3){
+            if (it.length > 3) {
                 viewModel.searchFoods(it)
             }
         }
 
         return true
     }
-
-
 
 
 }

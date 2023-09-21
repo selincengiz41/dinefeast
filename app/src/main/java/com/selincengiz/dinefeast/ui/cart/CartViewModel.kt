@@ -18,44 +18,47 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CartViewModel @Inject constructor(private val cartRepo: CartRepo,private val favoriteRepo: FavoriteRepo): ViewModel() {
+class CartViewModel @Inject constructor(
+    private val cartRepo: CartRepo,
+    private val favoriteRepo: FavoriteRepo
+) : ViewModel() {
 
     private var _homeState = MutableLiveData<HomeState>()
-    val homeState : LiveData<HomeState>
+    val homeState: LiveData<HomeState>
         get() = _homeState
 
-    private var _roomList=MutableLiveData<List<FoodEntity>>()
-    val roomList:LiveData<List<FoodEntity>>
+    private var _roomList = MutableLiveData<List<FoodEntity>>()
+    val roomList: LiveData<List<FoodEntity>>
         get() = _roomList
 
-    fun clearCart(){
+    fun clearCart() {
         viewModelScope.launch {
-            _homeState.value= HomeState.Loading
-            val result=  cartRepo.clearCart()
-            when(result){
+            _homeState.value = HomeState.Loading
+            val result = cartRepo.clearCart()
+            when (result) {
                 is Resource.Success -> {
-                    _homeState.value= HomeState.Cart(result.data)
+                    _homeState.value = HomeState.Cart(result.data)
                 }
 
                 is Resource.Error -> {
-                    _homeState.value=HomeState.Error(result.throwable)
+                    _homeState.value = HomeState.Error(result.throwable)
                 }
             }
             delay(1000)
         }
     }
 
-    fun getCartFoods(){
+    fun getCartFoods() {
         viewModelScope.launch {
-            _homeState.value= HomeState.Loading
-            val result=  cartRepo.getCartFoods()
-            when(result){
+            _homeState.value = HomeState.Loading
+            val result = cartRepo.getCartFoods()
+            when (result) {
                 is Resource.Success -> {
                     val entityList = favoriteRepo.getFoods()
-                    var finalList= ArrayList<FoodEntity>()
+                    var finalList = ArrayList<FoodEntity>()
                     if (entityList.size > 0) {
                         result.data.forEach { food ->
-                            var temp: FoodEntity? =null
+                            var temp: FoodEntity? = null
                             entityList.forEach { foodEntity ->
 
                                 if (food.id == foodEntity.id) {
@@ -70,40 +73,36 @@ class CartViewModel @Inject constructor(private val cartRepo: CartRepo,private v
                             }
 
                         }
-                        _roomList.value= finalList
+                        _roomList.value = finalList
+                    } else {
+                        _roomList.value = result.data.map { it.mapToFoodEntity(false) }
                     }
-                    else {
-                        _roomList.value=   result.data.map { it.mapToFoodEntity(false) }
-                    }
-                    _homeState.value= _roomList.value?.let { HomeState.Data(it) }
+                    _homeState.value = _roomList.value?.let { HomeState.Data(it) }
 
                 }
 
                 is Resource.Error -> {
-                    _homeState.value=HomeState.Error(result.throwable)
+                    _homeState.value = HomeState.Error(result.throwable)
                 }
             }
         }
     }
 
-    fun deleteCart(id:Int){
+    fun deleteCart(id: Int) {
         viewModelScope.launch {
-            _homeState.value= HomeState.Loading
-            val result=  cartRepo.deleteCart(id)
-            when(result){
+            _homeState.value = HomeState.Loading
+            val result = cartRepo.deleteCart(id)
+            when (result) {
                 is Resource.Success -> {
-                    _homeState.value= HomeState.Cart(result.data)
+                    _homeState.value = HomeState.Cart(result.data)
                 }
 
                 is Resource.Error -> {
-                    _homeState.value=HomeState.Error(result.throwable)
+                    _homeState.value = HomeState.Error(result.throwable)
                 }
             }
         }
     }
-
-
-
 
 
 }

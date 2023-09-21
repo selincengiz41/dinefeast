@@ -48,4 +48,4 @@ data class FoodEntity(
     val isFavorite: Boolean?,
 
 
-)
+    )

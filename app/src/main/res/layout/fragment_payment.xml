@@ -9,6 +9,7 @@
             name="paymentFunctions"
             type="com.selincengiz.dinefeast.ui.payment.PaymentFragment" />
 
+
     </data>
 
     <ScrollView
@@ -31,163 +32,190 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
+                <ImageView
+                    android:id="@+id/btn_credit_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:onClick="@{()-> paymentFunctions.barCreditClicked()}"
+                    app:layout_constraintBottom_toBottomOf="@+id/textView8"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/textView8"
+                    app:srcCompat="@drawable/hide" />
+
                 <TextView
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_10sdp"
-
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:text="Credit Card Information"
                     android:textColor="@color/orange"
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/bar_credit_card"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                 </TextView>
 
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_20sdp"
-
-                    android:text="Name On Card"
-                    android:textColor="@color/text"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/bar_credit_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView8">
 
-                </TextView>
 
-                <EditText
-                    android:id="@+id/et_cart_name"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:background="@drawable/payment_edit_text"
-                    android:ems="10"
-                    android:hint="Name"
-                    android:inputType="text"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:textColorHint="@color/orange"
-                    android:textSize="@dimen/_12ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView9" />
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
 
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_20sdp"
-                    android:text="Card Number"
-                    android:textColor="@color/text"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_cart_name">
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Name On Card"
+                        android:textColor="@color/text"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                </TextView>
+                    </TextView>
 
-                <SearchView
-                    android:id="@+id/et_cart_number"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:background="@drawable/payment_edit_text"
-                    android:ems="10"
-                    android:queryBackground="@null"
-                    android:paddingStart="@dimen/_minus35sdp"
-                    android:theme="@style/SearchViewTheme"
-                    android:iconifiedByDefault="false"
-                    android:queryHint="XXXX XXXX XXXX XXXX"
-                    android:textColor="@color/orange"
-                    android:searchIcon="@color/white"
-                    android:closeIcon="@color/white"
-                    android:hint="XXXX XXXX XXXX XXXX"
-                    android:inputType="number"
-                    android:textColorHint="@color/orange"
-                    android:textSize="@dimen/_12ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView10" />
+                    <EditText
+                        android:id="@+id/et_cart_name"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:background="@drawable/payment_edit_text"
+                        android:ems="10"
+                        android:hint="Name"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:textColorHint="@color/orange"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-                <TextView
-                    android:id="@+id/textView11"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:text="Security Code"
-                    android:textColor="@color/text"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/textView12"
-                    app:layout_constraintTop_toTopOf="@+id/textView12" />
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_20sdp"
+                        android:text="Card Number"
+                        android:textColor="@color/text"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/et_cart_name">
 
-                <TextView
-                    android:id="@+id/textView12"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:layout_marginTop="@dimen/_20sdp"
-                    android:text="Expiry Date"
-                    android:textColor="@color/text"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toStartOf="@+id/textView11"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_cart_number" />
+                    </TextView>
 
-                <EditText
-                    android:id="@+id/et_cart_cvv"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:background="@drawable/payment_edit_text"
-                    android:ems="10"
-                    android:hint="CVV"
-                    android:inputType="number"
-                    android:maxLength="3"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:textColorHint="@color/orange"
-                    android:textSize="@dimen/_12ssp"
-                    app:layout_constraintBottom_toBottomOf="@+id/et_cart_date"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/et_cart_date"
-                    app:layout_constraintTop_toTopOf="@+id/et_cart_date" />
+                    <SearchView
+                        android:id="@+id/et_cart_number"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:background="@drawable/payment_edit_text"
+                        android:closeIcon="@color/white"
+                        android:ems="10"
+                        android:hint="XXXX XXXX XXXX XXXX"
+                        android:iconifiedByDefault="false"
+                        android:inputType="number"
+                        android:paddingStart="@dimen/_minus35sdp"
+                        android:queryBackground="@null"
+                        android:queryHint="XXXX XXXX XXXX XXXX"
+                        android:searchIcon="@color/white"
+                        android:textColor="@color/orange"
+                        android:textColorHint="@color/orange"
+                        android:textSize="@dimen/_12ssp"
+                        android:theme="@style/SearchViewTheme"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-                <SearchView
-                    android:id="@+id/et_cart_date"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:layout_marginBottom="@dimen/_20sdp"
-                    android:background="@drawable/payment_edit_text"
-                    android:ems="10"
-                    android:queryBackground="@null"
-                    android:textSize="@dimen/_12ssp"
-                    android:theme="@style/SearchViewTheme"
-                    android:iconifiedByDefault="false"
-                    android:queryHint="MM/YY"
-                    android:textColor="@color/orange"
-                    android:searchIcon="@color/white"
-                    android:closeIcon="@color/white"
-                    android:textColorHint="@color/orange"
-                    android:inputType="number"
-                    android:paddingStart="@dimen/_minus35sdp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/et_cart_cvv"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="spread_inside"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView11" />
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:text="Security Code"
+                        android:textColor="@color/text"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textView12"
+                        app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+                    <TextView
+                        android:id="@+id/textView12"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:text="Expiry Date"
+                        android:textColor="@color/text"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/textView11"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/et_cart_number" />
+
+                    <EditText
+                        android:id="@+id/et_cart_cvv"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:background="@drawable/payment_edit_text"
+                        android:ems="10"
+                        android:hint="CVV"
+                        android:inputType="number"
+                        android:maxLength="3"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:textColorHint="@color/orange"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="@+id/et_cart_date"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/et_cart_date"
+                        app:layout_constraintTop_toTopOf="@+id/et_cart_date" />
+
+                    <SearchView
+                        android:id="@+id/et_cart_date"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@drawable/payment_edit_text"
+                        android:closeIcon="@color/white"
+                        android:ems="10"
+                        android:iconifiedByDefault="false"
+                        android:inputType="number"
+                        android:paddingStart="@dimen/_minus35sdp"
+                        android:queryBackground="@null"
+                        android:queryHint="MM/YY"
+                        android:searchIcon="@color/white"
+                        android:textColor="@color/orange"
+                        android:textColorHint="@color/orange"
+                        android:textSize="@dimen/_12ssp"
+                        android:theme="@style/SearchViewTheme"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/et_cart_cvv"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="spread_inside"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
             </com.tistory.zladnrms.roundablelayout.RoundableLayout>
 
             <com.tistory.zladnrms.roundablelayout.RoundableLayout
@@ -201,89 +229,117 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/credit_cart_layout">
 
+                <ImageView
+                    android:id="@+id/btn_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:onClick="@{()-> paymentFunctions.barInfoClicked()}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_com"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_com"
+                    app:srcCompat="@drawable/hide" />
+
                 <TextView
                     android:id="@+id/tv_com"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:text="Communication Info"
                     android:textColor="@color/orange"
+
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/bar_info"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                 </TextView>
 
-                <TextView
-                    android:id="@+id/tv_na"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_20sdp"
-                    android:text="Name"
-                    android:textColor="@color/text"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_com">
-
-                </TextView>
-
-                <EditText
-                    android:id="@+id/et_info_name"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:background="@drawable/payment_edit_text"
-                    android:ems="10"
-                    android:hint="Name"
-                    android:inputType="text"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:textColorHint="@color/orange"
-                    android:textSize="@dimen/_12ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_na" />
-
-                <TextView
-                    android:id="@+id/tv_ph"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_20sdp"
-                    android:text="Phone"
-                    android:textColor="@color/text"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_info_name">
-
-                </TextView>
-
-                <SearchView
-                    android:id="@+id/et_info_phone"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:layout_marginBottom="@dimen/_20sdp"
-                    android:background="@drawable/payment_edit_text"
-                    android:ems="10"
-                    android:queryBackground="@null"
-                    android:paddingStart="@dimen/_minus35sdp"
-                    android:theme="@style/SearchViewTheme"
-                    android:iconifiedByDefault="false"
-                    android:queryHint="05** *** ****"
-                    android:textColor="@color/orange"
-                    android:searchIcon="@color/white"
-                    android:closeIcon="@color/white"
-                    android:inputType="number"
-                    android:textColorHint="@color/orange"
-                    android:textSize="@dimen/_12ssp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/bar_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_ph" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_com">
 
 
+                    <TextView
+                        android:id="@+id/tv_na"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Name"
+
+                        android:textColor="@color/text"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/et_info_name"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:background="@drawable/payment_edit_text"
+                        android:ems="10"
+                        android:hint="Name"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:textColorHint="@color/orange"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_na" />
+
+                    <TextView
+                        android:id="@+id/tv_ph"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_20sdp"
+                        android:text="Phone"
+                        android:textColor="@color/text"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/et_info_name">
+
+                    </TextView>
+
+                    <SearchView
+                        android:id="@+id/et_info_phone"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@drawable/payment_edit_text"
+                        android:closeIcon="@color/white"
+                        android:ems="10"
+                        android:iconifiedByDefault="false"
+                        android:inputType="number"
+                        android:paddingStart="@dimen/_minus35sdp"
+                        android:queryBackground="@null"
+                        android:queryHint="05** *** ****"
+                        android:searchIcon="@color/white"
+                        android:textColor="@color/orange"
+                        android:textColorHint="@color/orange"
+                        android:textSize="@dimen/_12ssp"
+                        android:theme="@style/SearchViewTheme"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_ph" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </com.tistory.zladnrms.roundablelayout.RoundableLayout>
 
             <com.tistory.zladnrms.roundablelayout.RoundableLayout
@@ -297,83 +353,113 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/info_layout">
 
+                <ImageView
+                    android:id="@+id/btn_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:onClick="@{()-> paymentFunctions.barAddressClicked()}"
+
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_loc"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tv_loc"
+                    app:srcCompat="@drawable/hide" />
+
                 <TextView
                     android:id="@+id/tv_loc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:text="Address"
                     android:textColor="@color/orange"
+
                     android:textSize="@dimen/_14ssp"
                     android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@id/bar_address"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
                 </TextView>
 
-                <TextView
-                    android:id="@+id/tv_ti"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_20sdp"
-                    android:text="Address Title"
-                    android:textColor="@color/text"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_loc">
-
-                </TextView>
-
-                <EditText
-                    android:id="@+id/et_address_title"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:background="@drawable/payment_edit_text"
-                    android:ems="10"
-                    android:hint="Title"
-                    android:inputType="text"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:textColorHint="@color/orange"
-                    android:textSize="@dimen/_12ssp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_ti" />
-
-
-                <TextView
-                    android:id="@+id/tv_ad"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/_20sdp"
-                    android:text="Address"
-                    android:textColor="@color/text"
-                    android:textSize="@dimen/_12ssp"
-                    android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/et_address_title">
-
-                </TextView>
-
-                <EditText
-                    android:id="@+id/et_address"
-                    android:layout_width="0dp"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_marginHorizontal="@dimen/_20sdp"
-                    android:layout_marginBottom="@dimen/_20sdp"
-                    android:background="@drawable/payment_edit_text"
-                    android:ems="10"
-                    android:hint="Address"
-                    android:inputType="text"
-                    android:paddingStart="@dimen/_10sdp"
-                    android:textColorHint="@color/orange"
-                    android:textSize="@dimen/_12ssp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/bar_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="@dimen/_10sdp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_ad" />
+                    app:layout_constraintTop_toBottomOf="@+id/tv_loc">
 
+
+                    <TextView
+                        android:id="@+id/tv_ti"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:text="Address Title"
+
+                        android:textColor="@color/text"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/et_address_title"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:background="@drawable/payment_edit_text"
+                        android:ems="10"
+                        android:hint="Title"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:textColorHint="@color/orange"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_ti" />
+
+
+                    <TextView
+                        android:id="@+id/tv_ad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_20sdp"
+                        android:text="Address"
+                        android:textColor="@color/text"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/et_address_title">
+
+                    </TextView>
+
+                    <EditText
+                        android:id="@+id/et_address"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@drawable/payment_edit_text"
+                        android:ems="10"
+                        android:hint="Address"
+                        android:inputType="text"
+                        android:paddingStart="@dimen/_10sdp"
+                        android:textColorHint="@color/orange"
+                        android:textSize="@dimen/_12ssp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_ad" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </com.tistory.zladnrms.roundablelayout.RoundableLayout>
 

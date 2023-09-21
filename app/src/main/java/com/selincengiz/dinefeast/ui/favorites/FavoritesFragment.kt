@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class FavoritesFragment : Fragment(), ItemListener {
 
-    private lateinit var binding:FragmentFavoritesBinding
+    private lateinit var binding: FragmentFavoritesBinding
     private val viewModel by viewModels<FavoritesViewModel>()
     private val adapter by lazy { FoodAdapter(this) }
 
@@ -30,8 +30,8 @@ class FavoritesFragment : Fragment(), ItemListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding=DataBindingUtil.inflate(inflater,R.layout.fragment_favorites, container, false)
-        binding.favoritesRecycler.adapter=adapter
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_favorites, container, false)
+        binding.favoritesRecycler.adapter = adapter
         return binding.root
     }
 
@@ -41,12 +41,12 @@ class FavoritesFragment : Fragment(), ItemListener {
         viewModel.getFoods()
     }
 
-    fun observe(){
-        viewModel.listFavorite.observe(viewLifecycleOwner){
-              adapter.submitList(it)
+    fun observe() {
+        viewModel.listFavorite.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
 
-            }
         }
+    }
 
     override fun onClicked(food: FoodEntity) {
         food.id?.let {

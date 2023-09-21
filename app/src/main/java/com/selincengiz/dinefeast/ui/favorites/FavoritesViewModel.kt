@@ -18,13 +18,16 @@ import java.lang.Exception
 import javax.inject.Inject
 
 @HiltViewModel
-class FavoritesViewModel @Inject constructor(private val favoriteRepo: FavoriteRepo ,private val cartRepo: CartRepo): ViewModel() {
+class FavoritesViewModel @Inject constructor(
+    private val favoriteRepo: FavoriteRepo,
+    private val cartRepo: CartRepo
+) : ViewModel() {
 
     private var _listFavorite = MutableLiveData<List<FoodEntity>>()
-    val listFavorite : LiveData<List<FoodEntity>>
+    val listFavorite: LiveData<List<FoodEntity>>
         get() = _listFavorite
 
-    fun getFoods(){
+    fun getFoods() {
         viewModelScope.launch {
 
             _listFavorite.value = favoriteRepo.getFoods()
@@ -35,7 +38,7 @@ class FavoritesViewModel @Inject constructor(private val favoriteRepo: FavoriteR
 
     fun addCart(foodId: Int) {
         viewModelScope.launch {
-             cartRepo.addCart(foodId)
+            cartRepo.addCart(foodId)
 
         }
     }

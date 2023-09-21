@@ -5,9 +5,6 @@
 
     <data>
 
-        <variable
-            name="splashFragmentFunctions"
-            type="com.selincengiz.dinefeast.ui.splash.SplashFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,7 +15,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/background"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/background_intro"
@@ -28,11 +25,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+
             <ImageView
                 android:id="@+id/logo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 android:src="@drawable/logo"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -52,41 +49,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"></ImageView>
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_50sdp"
-                android:elevation="@dimen/_10sdp"
-                android:fontFamily="@font/poppins"
-                android:gravity="center"
-                android:text="@string/projectName"
-                android:textColor="@color/text"
-                android:textSize="@dimen/_36ssp"
-                android:textStyle="bold|italic"
 
-                android:visibility="gone"
-                app:layout_constraintBottom_toTopOf="@+id/logo"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:visibility="gone" />
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/_30sdp"
-                android:text="Order and feast your meals!"
-                android:textColor="@color/text"
-                android:textSize="@dimen/_16ssp"
-                android:textStyle="bold"
-                android:fontFamily="@font/poppins"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/logo" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

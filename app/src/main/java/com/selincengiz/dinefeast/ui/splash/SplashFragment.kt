@@ -24,16 +24,18 @@ class SplashFragment : Fragment() {
     @Inject
     lateinit var auth: FirebaseAuth
 
-    private lateinit var binding:FragmentSplashBinding
+    private lateinit var binding: FragmentSplashBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding= DataBindingUtil.inflate(inflater,
-            com.selincengiz.dinefeast.R.layout.fragment_splash, container, false)
-        binding.splashFragmentFunctions = this
+        binding = DataBindingUtil.inflate(
+            inflater,
+            com.selincengiz.dinefeast.R.layout.fragment_splash, container, false
+        )
+
         return binding.root
     }
 
@@ -44,12 +46,14 @@ class SplashFragment : Fragment() {
         animationLogo()
     }
 
-    fun animationLogo(){
-        val imageView=binding.logo
+    fun animationLogo() {
+        val imageView = binding.logo
         val animationSet = AnimationSet(true)
 
-        val fadeInAnimation: Animation = AnimationUtils.loadAnimation(requireContext(), com.selincengiz.dinefeast.R.anim.fade_in)
-        val scaleAnimation: Animation = AnimationUtils.loadAnimation(requireContext(), com.selincengiz.dinefeast.R.anim.scale)
+        val fadeInAnimation: Animation =
+            AnimationUtils.loadAnimation(requireContext(), com.selincengiz.dinefeast.R.anim.fade_in)
+        val scaleAnimation: Animation =
+            AnimationUtils.loadAnimation(requireContext(), com.selincengiz.dinefeast.R.anim.scale)
 
         animationSet.addAnimation(fadeInAnimation)
         animationSet.addAnimation(scaleAnimation)
@@ -63,8 +67,7 @@ class SplashFragment : Fragment() {
             override fun onAnimationEnd(animation: Animation) {
                 if (auth.currentUser != null) {
                     findNavController().navigate(SplashFragmentDirections.splashToHome())
-                }
-                else{
+                } else {
                     findNavController().navigate(SplashFragmentDirections.splashToSignIn())
                 }
             }

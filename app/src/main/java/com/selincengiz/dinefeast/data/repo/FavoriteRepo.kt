@@ -20,9 +20,9 @@ class FavoriteRepo(
     private val auth: FirebaseAuth
 ) {
 
-     suspend fun getFoods(): List<FoodEntity> {
+    suspend fun getFoods(): List<FoodEntity> {
 
-         return foodDao.getFoods()
+        return foodDao.getFoods()
     }
 
     suspend fun addFood(food: FoodEntity) {

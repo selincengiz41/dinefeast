@@ -22,7 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class HomeFragment : Fragment(), ItemListener {
-private lateinit var binding:FragmentHomeBinding
+    private lateinit var binding: FragmentHomeBinding
     private val viewModel by viewModels<HomeViewModel>()
     private val saleFoodAdapter by lazy { FoodAdapter(this) }
     private val foodAdapter by lazy { FoodAdapter(this) }
@@ -33,9 +33,9 @@ private lateinit var binding:FragmentHomeBinding
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding= DataBindingUtil.inflate(inflater,R.layout.fragment_home, container, false)
-        binding.saleRecycler.adapter=saleFoodAdapter
-        binding.allFoodsRecycler.adapter=foodAdapter
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
+        binding.saleRecycler.adapter = saleFoodAdapter
+        binding.allFoodsRecycler.adapter = foodAdapter
         return binding.root
     }
 
@@ -47,7 +47,7 @@ private lateinit var binding:FragmentHomeBinding
         viewModel.getSaleFoods()
     }
 
-    fun observe(){
+    fun observe() {
         viewModel.homeState.observe(viewLifecycleOwner) { state ->
 
             when (state) {
@@ -71,10 +71,11 @@ private lateinit var binding:FragmentHomeBinding
                         .show()
 
                 }
+
                 is HomeState.DataByFilter -> {
 
-                    binding.progressBar.visibility=View.GONE
-                    binding.mainLayout.visibility=View.VISIBLE
+                    binding.progressBar.visibility = View.GONE
+                    binding.mainLayout.visibility = View.VISIBLE
                     saleFoodAdapter.submitList(state.foods)
 
                 }
@@ -108,13 +109,13 @@ private lateinit var binding:FragmentHomeBinding
     }
 
     override fun favoriteClicked(food: FoodEntity) {
-       viewModel.addFavorites(food)
+        viewModel.addFavorites(food)
         viewModel.getFoods()
         viewModel.getSaleFoods()
     }
 
     override fun unFavoriteClicked(food: FoodEntity) {
-       viewModel.deleteFavorites(food)
+        viewModel.deleteFavorites(food)
         viewModel.getFoods()
         viewModel.getSaleFoods()
     }
