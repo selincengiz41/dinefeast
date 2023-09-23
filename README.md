@@ -5,17 +5,17 @@ This application is an e-commerce platform focused on food. In order to use the 
 <!-- Screenshots -->
 ## 📸 Screenshots
 <p align="center">
-  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/c9fc98a6-cfac-4a67-a8bd-68b2c9225cee" width="300" height="550"/> 
-  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/7b83cdd5-bbf0-47c3-ba45-ecdc17bd5d23" width="300" height="550"/> 
-  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/7cbe312f-447c-4229-88ce-3bef19b9d8ce" width="300" height="550"/>
-  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/89679e93-3e58-4a12-87fc-5c55c87cc1dc" width="300" height="550"/>
-  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/894801b6-9af5-432f-a9bd-ef9374487f8a" width="300" height="550"/>
-  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/5419113f-0e96-4af8-8e41-5555b10d04c5" width="300" height="550"/>
-  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/87e5b1d5-2bd2-4fb7-841e-9ab820ac882d" width="300" height="550"/>
-  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/0fa18db2-e27c-4268-9a89-a62e2c219246" width="300" height="550"/>
-  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/fed67277-086d-4b75-827b-5009107d82af" width="300" height="550"/>
-  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/f5c187fe-21c8-40db-bbcb-e2a8b23510df" width="300" height="550"/> 
-  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/614a72ed-f873-4c1f-9f79-55e54e6b61be" width="300" height="550"/> 
+  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/c9fc98a6-cfac-4a67-a8bd-68b2c9225cee" width="275" height="550"/> 
+  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/7b83cdd5-bbf0-47c3-ba45-ecdc17bd5d23" width="275" height="550"/> 
+  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/7cbe312f-447c-4229-88ce-3bef19b9d8ce" width="275" height="550"/>
+  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/89679e93-3e58-4a12-87fc-5c55c87cc1dc" width="275" height="550"/>
+  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/894801b6-9af5-432f-a9bd-ef9374487f8a" width="275" height="550"/>
+  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/5419113f-0e96-4af8-8e41-5555b10d04c5" width="275" height="550"/>
+  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/87e5b1d5-2bd2-4fb7-841e-9ab820ac882d" width="275" height="550"/>
+  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/0fa18db2-e27c-4268-9a89-a62e2c219246" width="275" height="550"/>
+  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/fed67277-086d-4b75-827b-5009107d82af" width="275" height="550"/>
+  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/f5c187fe-21c8-40db-bbcb-e2a8b23510df" width="275" height="550"/> 
+  <img src="https://github.com/selincengiz41/dinefeast/assets/60012262/614a72ed-f873-4c1f-9f79-55e54e6b61be" width="275" height="550"/> 
   
   
 
