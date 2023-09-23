@@ -118,8 +118,11 @@ class CartFragment : Fragment(), ItemCartListener {
 
     fun clearClicked() {
         viewModel.clearCart()
-
+        binding.cartRecycler.visibility=View.GONE
         viewModel.getCartFoods()
+
+
+        binding.cartRecycler.visibility=View.VISIBLE
 
     }
 
@@ -136,11 +139,14 @@ class CartFragment : Fragment(), ItemCartListener {
     override fun onDeleteClicked(food: FoodEntity) {
         food.id?.let {
             viewModel.deleteCart(it)
+
         } ?: kotlin.run {
             Toast.makeText(requireContext(), "Deletion failed", Toast.LENGTH_SHORT).show()
         }
-        viewModel.getCartFoods()
+        binding.cartRecycler.visibility=View.GONE
 
+        viewModel.getCartFoods()
+        binding.cartRecycler.visibility=View.VISIBLE
     }
 
 
