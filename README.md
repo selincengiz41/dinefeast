@@ -21,8 +21,11 @@ This application is an e-commerce platform focused on food. In order to use the 
 
 </p>
 
-<br>
 
+## 📽 Video 
+- https://drive.google.com/file/d/10elKAIumdHEyEe2YANDUpfP6X_p_iLSx/view?usp=drivesdk
+
+<br>
 
 ## :point_down: Structures 
 - MVVM
